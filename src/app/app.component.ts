@@ -1,4 +1,21 @@
 import { Component } from '@angular/core';
+export interface PeriodicElement {
+  name: string;
+  email: string;
+  phone: string;
+}
+const ELEMENT_DATA: PeriodicElement[] = [
+  { name: 'Hydrogen', email: 'Hydrogen', phone: 'H'},
+  { name: 'Helium', email: 'Helium', phone: 'He'},
+  { name: 'Lithium', email: 'Lithium', phone: 'Li'},
+  { name: 'Beryllium', email: 'Beryllium', phone: 'Be'},
+  { name: 'Boron', email:'Boron', phone: 'B'},
+  { name: 'Carbon', email: 'Carbon', phone: 'C'},
+  { name: 'Nitrogen', email: 'Nitrogen', phone: 'N'},
+  { name: 'Oxygen', email: 'Oxygen', phone: 'O'},
+  { name: 'Fluorine', email: 'Fluorine', phone: 'F'},
+  { name: 'Neon', email: 'Neon', phone: 'Ne' },
+];
 
 @Component({
   selector: 'app-root',
@@ -6,5 +23,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'crud';
+  displayedColumns: string[] = ['name' ,'email','phone', 'actions'];
+  dataSource = ELEMENT_DATA;
 }

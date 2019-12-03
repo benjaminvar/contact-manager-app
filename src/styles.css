@@ -2,3 +2,27 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mt{
+    margin-top: 15px;
+}
+.mb{
+    margin-bottom: 15px;
+}
+.wrapper{
+    max-width:800px;
+    margin:0 auto;
+}
+.table-header{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+.table-header .title{
+    flex-grow: 1;
+}
+.table-container table{
+    width:100%;
+}
+.action-buttons button{
+    margin-right: 5px;
+}
