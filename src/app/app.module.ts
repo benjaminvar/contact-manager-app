@@ -15,12 +15,14 @@ import {MatInputModule} from '@angular/material/input';
 import { ContactAddFormComponent } from './contact-add-form/contact-add-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { ContactService } from "./contact.service"
+import { ContactService } from "./contact.service";
+import { ContactEditFormComponent } from './contact-edit-form/contact-edit-form.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContactAddFormComponent
+    ContactAddFormComponent,
+    ContactEditFormComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,9 @@ import { ContactService } from "./contact.service"
   ],
   providers: [ContactService],
   bootstrap: [AppComponent],
-  entryComponents:[ContactAddFormComponent]
+  entryComponents:[
+    ContactAddFormComponent,
+    ContactEditFormComponent
+  ]
 })
 export class AppModule { }

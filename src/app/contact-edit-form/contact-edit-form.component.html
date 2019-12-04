@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Update Contact</h1>
+<form [formGroup]="contactForm" mat-dialog-content>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name">
+    </mat-form-field>  
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email" >
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+     <input matInput placeholder="Phone Number" formControlName="phone" >
+    </mat-form-field>
+  </div>
+  
+</form>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="update()" cdkFocusInitial>Update</button>
+  <button mat-raised-button (click)="close()">Cancel</button>
+</div>
