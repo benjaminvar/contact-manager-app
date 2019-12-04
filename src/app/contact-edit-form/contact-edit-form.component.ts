@@ -14,18 +14,18 @@ export class ContactEditFormComponent implements OnInit {
     phone: new FormControl(''),
   });
   constructor(public dialogRef: MatDialogRef<ContactEditFormComponent>, 
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: Contact) { }
 
-  ngOnInit() {
+  ngOnInit():void {
     this.contactForm.get('name').setValue(this.data.name);
     this.contactForm.get('email').setValue(this.data.email);
     this.contactForm.get('phone').setValue(this.data.phone);
   }
-  update()
+  update():void
   {
     this.dialogRef.close({oldContact: this.data, updatedContact: this.contactForm.value});
   }
-  close()
+  close():void
   {
     this.dialogRef.close();
   }

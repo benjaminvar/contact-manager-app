@@ -14,14 +14,14 @@ export class ContactAddFormComponent implements OnInit {
     phone: new FormControl(''),
   });
   constructor(public dialogRef: MatDialogRef<ContactAddFormComponent>, 
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: Contact) { }
   ngOnInit() {
   }
-  add()
+  add():void
   {
     this.dialogRef.close(this.contactForm.value);
   }
-  close()
+  close():void
   {
     this.dialogRef.close();
   }

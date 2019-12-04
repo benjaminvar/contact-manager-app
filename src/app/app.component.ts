@@ -15,20 +15,20 @@ export class AppComponent {
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   constructor(public dialog: MatDialog, public contactService: ContactService) {}
-  ngOnInit()
+  ngOnInit(): void
   {
    this.loadData();
   }
-  ngAfterViewInit() {
+  ngAfterViewInit():void {
     this.dataSource.paginator = this.paginator;
     }
-  loadData()
+  loadData(): void
   {
     this.contactService.getContacts().subscribe(data => {
     this.dataSource.data = data;
   }); 
   }
-  showContactAddDialog()
+  showContactAddDialog(): void
   {
     const dialogRef = this.dialog.open(ContactAddFormComponent, {
     
@@ -42,7 +42,7 @@ export class AppComponent {
      }
     });
   }
-  showContactEditDialog(contact: Contact)
+  showContactEditDialog(contact: Contact): void
   {
     const dialogRef = this.dialog.open(ContactEditFormComponent, {
       data: contact
