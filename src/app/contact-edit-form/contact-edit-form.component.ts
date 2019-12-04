@@ -20,7 +20,7 @@ export class ContactEditFormComponent implements OnInit {
   }
   update()
   {
-    this.dialogRef.close(this.contactForm.value);
+    this.dialogRef.close({oldContact: this.data, updatedContact: this.contactForm.value});
   }
   close()
   {
