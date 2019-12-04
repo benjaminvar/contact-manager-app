@@ -34,7 +34,7 @@
       <!-- Actions -->
       <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef> Actions </th>
-          <td mat-cell *matCellDef="let element"> <div class="action-buttons"><button mat-raised-button color="primary">Edit</button> <button mat-raised-button color="warn">Delete</button></div>
+          <td mat-cell *matCellDef="let element"> <div class="action-buttons"><button mat-raised-button color="primary">Edit</button> <button mat-raised-button color="warn" (click)="deleteContact(element)">Delete</button></div>
           </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

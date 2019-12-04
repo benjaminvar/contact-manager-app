@@ -3,6 +3,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { ContactAddFormComponent } from './contact-add-form/contact-add-form.component';
 import {MatTableDataSource} from "@angular/material"
 import { ContactService } from './contact.service';
+import { Contact } from './contact';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -35,5 +36,10 @@ export class AppComponent {
        this.loadData();
      }
     });
+  }
+  deleteContact(contact: Contact): void
+  {
+    this.contactService.deleteContact(contact);
+    this.loadData();
   }
 }
