@@ -4,7 +4,7 @@
 <div class="wrapper mt">
   <div class="table-header">
       <h4 class="title">Contact list</h4>
-      <button mat-raised-button color="primary">Add</button>
+      <button mat-raised-button color="primary" (click)="showContactAddDialog()">Add</button>
   </div>
  <div class="table-container mt mb">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

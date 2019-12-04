@@ -8,12 +8,19 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
+import { ContactAddFormComponent } from './contact-add-form/contact-add-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { ContactService } from "./contact.service"
 
 @NgModule({
   declarations: [
     AppComponent,
-
+    ContactAddFormComponent
   ],
   imports: [
     BrowserModule,
@@ -21,9 +28,14 @@ import {MatButtonModule} from '@angular/material/button';
     MatToolbarModule,
     MatTableModule,
     MatPaginatorModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ContactService],
+  bootstrap: [AppComponent],
+  entryComponents:[ContactAddFormComponent]
 })
 export class AppModule { }
