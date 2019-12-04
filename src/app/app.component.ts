@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { ContactAddFormComponent } from './contact-add-form/contact-add-form.component';
-import {MatTableDataSource} from "@angular/material"
+import {MatTableDataSource, MatPaginator} from "@angular/material"
 import { ContactService } from './contact.service';
 import { Contact } from './contact';
 import { ContactEditFormComponent } from './contact-edit-form/contact-edit-form.component';
@@ -13,15 +13,19 @@ import { ContactEditFormComponent } from './contact-edit-form/contact-edit-form.
 export class AppComponent {
   displayedColumns: string[] = ['name' ,'email','phone', 'actions'];
   dataSource = new MatTableDataSource();
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   constructor(public dialog: MatDialog, public contactService: ContactService) {}
   ngOnInit()
   {
    this.loadData();
   }
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    }
   loadData()
   {
     this.contactService.getContacts().subscribe(data => {
-      this.dataSource.data = data;
+    this.dataSource.data = data;
   }); 
   }
   showContactAddDialog()
