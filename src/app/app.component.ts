@@ -4,6 +4,7 @@ import { ContactAddFormComponent } from './contact-add-form/contact-add-form.com
 import {MatTableDataSource} from "@angular/material"
 import { ContactService } from './contact.service';
 import { Contact } from './contact';
+import { ContactEditFormComponent } from './contact-edit-form/contact-edit-form.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -33,6 +34,21 @@ export class AppComponent {
      if(result)
      {
        this.contactService.addContact(result);
+       this.loadData();
+     }
+    });
+  }
+  showContactEditDialog(contact: Contact)
+  {
+    const dialogRef = this.dialog.open(ContactEditFormComponent, {
+      data: contact
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+     if(result)
+     {
+       let {oldContact, updatedContact} = result;
+       this.contactService.updateContact(oldContact, updatedContact);
        this.loadData();
      }
     });
