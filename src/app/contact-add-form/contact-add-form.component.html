@@ -3,21 +3,26 @@
   <div>
     <mat-form-field>
       <input matInput placeholder="Name" formControlName="name">
+      <mat-error *ngIf="contactForm.get('name').invalid && contactForm.get('name').touched">This field is required.</mat-error>
     </mat-form-field>  
   </div>
   <div>
     <mat-form-field>
       <input matInput placeholder="Email" formControlName="email" >
+      <mat-error *ngIf="contactForm.get('email').errors?.required && contactForm.get('email').touched">This field is required.</mat-error>
+      <mat-error *ngIf="contactForm.get('email').errors?.email && contactForm.get('email').touched">Please enter a valid email.</mat-error>
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
      <input matInput placeholder="Phone Number" formControlName="phone" >
+     <mat-error *ngIf="contactForm.get('phone').errors?.required && contactForm.get('phone').touched">This field is required.</mat-error>
+     <mat-error *ngIf="contactForm.get('phone').errors?.pattern && contactForm.get('phone').touched">Please enter valid phone number.</mat-error>
     </mat-form-field>
   </div>
   
 </form>
 <div mat-dialog-actions>
-  <button mat-raised-button color="primary" (click)="add()" cdkFocusInitial>Add</button>
+  <button mat-raised-button color="primary" (click)="add()" [disabled]="contactForm.invalid" cdkFocusInitial>Add</button>
   <button mat-raised-button (click)="close()">Cancel</button>
 </div>
