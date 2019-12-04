@@ -17,6 +17,9 @@ export class ContactEditFormComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
+    this.contactForm.get('name').setValue(this.data.name);
+    this.contactForm.get('email').setValue(this.data.email);
+    this.contactForm.get('phone').setValue(this.data.phone);
   }
   update()
   {
