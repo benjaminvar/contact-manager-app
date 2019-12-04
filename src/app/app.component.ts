@@ -12,6 +12,16 @@ export class AppComponent {
   displayedColumns: string[] = ['name' ,'email','phone', 'actions'];
   dataSource = new MatTableDataSource();
   constructor(public dialog: MatDialog, public contactService: ContactService) {}
+  ngOnInit()
+  {
+   this.loadData();
+  }
+  loadData()
+  {
+    this.contactService.getContacts().subscribe(data => {
+      this.dataSource.data = data;
+  }); 
+  }
   showContactAddDialog()
   {
     const dialogRef = this.dialog.open(ContactAddFormComponent, {
