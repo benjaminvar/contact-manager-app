@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { ContactAddFormComponent } from './contact-add-form/contact-add-form.component';
+import {MatTableDataSource} from "@angular/material"
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +9,7 @@ import { ContactAddFormComponent } from './contact-add-form/contact-add-form.com
 })
 export class AppComponent {
   displayedColumns: string[] = ['name' ,'email','phone', 'actions'];
-  dataSource;
+  dataSource = new MatTableDataSource();
   constructor(public dialog: MatDialog) {}
   showContactAddDialog()
   {
