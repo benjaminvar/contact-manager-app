@@ -11,11 +11,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-
-import { ContactAddFormComponent } from './contact-add-form/contact-add-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { ContactService } from "./contact.service";
+
+import { ContactAddFormComponent } from './contact-add-form/contact-add-form.component';
 import { ContactEditFormComponent } from './contact-edit-form/contact-edit-form.component'
 
 @NgModule({
